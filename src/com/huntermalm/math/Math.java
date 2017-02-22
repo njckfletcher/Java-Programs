@@ -170,4 +170,84 @@ public class Math {
 		
 	}
 	
+	public static int[] factors(long num) {
+		
+		int count = 0;
+		
+		for(int i=1; i < num;) {
+			if(num % i == 0) {
+				count++;
+			}
+			i += 2;
+		}
+		
+		int[] factors = new int[count];
+		count = 0;
+		
+		for(int i=1; i < num; i++) {
+			if(num % i == 0) {
+				factors[count] = i;
+				count++;
+			}
+		}
+		
+		return factors;
+		
+	}
+	
+	public static int[] primes(int[] intArray) {
+		
+		int count = 0;
+		
+		for(int i=0; i < intArray.length; i++) {
+			if(isPrime(intArray[i])) {
+				count++;
+			}
+		}
+		
+		int[] primes = new int[count];
+		count = 0;
+		
+		for(int i=0; i < intArray.length; i++) {
+			if(isPrime(intArray[i])) {
+				primes[count] = intArray[i];
+				count++;
+			}
+		}
+		
+		return primes;
+		
+	}
+	
+	public static boolean isPrime(int num) {
+		
+		// check if num is 1
+		if(num == 1) return false;
+		
+	    // check if num is a multiple of 2
+	    if(num % 2 == 0) return false;
+	    
+	    // if not, then just check the odds
+	    for(int i=3; i * i <= num; i += 2) {
+	        if(num % i == 0) return false;
+	    }
+	    
+	    return true;
+	    
+	}
+	
+	public static int max(int[] intArray) {
+		
+		int max = 0;
+		
+		for(int i=0; i < intArray.length; i++) {
+			if(intArray[i] > max) {
+				max = intArray[i];
+			}
+		}
+		
+		return max;
+		
+	}
+	
 }
