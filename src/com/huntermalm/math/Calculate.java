@@ -1,6 +1,8 @@
 package com.huntermalm.math;
 
-public class Math {
+import java.lang.Math;
+
+public class Calculate {
 	
 	public static int[] multiplesOf(int num, int start, int end) {
 		
@@ -170,26 +172,28 @@ public class Math {
 		
 	}
 	
-	public static int[] factors(long num) {
+	public static int[] factors(int num) {
 		
 		int count = 0;
 		
-		for(int i=1; i < num;) {
+		for(int i=1; i <= num / 2; i++) {
 			if(num % i == 0) {
 				count++;
 			}
-			i += 2;
 		}
 		
-		int[] factors = new int[count];
+		int[] factors = new int[count + 1];
 		count = 0;
 		
-		for(int i=1; i < num; i++) {
+		for(int i=1; i <= num / 2; i++) {
 			if(num % i == 0) {
 				factors[count] = i;
 				count++;
 			}
 		}
+		
+		// Attach original num to factors because it IS a factor (1 * num = num)
+		factors[count] = num;
 		
 		return factors;
 		
@@ -247,6 +251,57 @@ public class Math {
 		}
 		
 		return max;
+		
+	}
+	
+	public static boolean isParity(int num, String parity) {
+		
+		if(parity == "even") {
+			if(num % 2 == 0) {
+				return true;
+			}
+		}
+		else if(parity == "odd") {
+			if(num % 2 != 0) {
+				return true;
+			}
+		}
+		
+		return false;
+		
+	}
+	
+	public static int binToDec(String bin) {
+		
+		int dec = 0;
+		int count = 0;
+		
+		for(int j=bin.length()-1; j >= 0; j--) {
+			if(bin.charAt(count) == '1') {
+				dec += Math.pow(2, j);
+			}
+			count++;
+		}
+		
+		return dec;
+		
+	}
+	
+	public static String decToBin(int dec) {
+		
+		return Integer.toBinaryString(dec);
+		
+	}
+	
+	public static double root(int num, int n) {
+		
+		return Math.pow(num, 1.0/n);
+		
+	}
+	
+	public static double logB(int base, int num) {
+		
+		return Math.log10(num)/Math.log10(base);
 		
 	}
 	
