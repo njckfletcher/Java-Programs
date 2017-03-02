@@ -1,6 +1,6 @@
 package com.huntermalm.javatools;
 
-import com.huntermalm.math.Calculate;;
+import com.huntermalm.math.Calculate;
 
 public class Runner {
 	public static void main(String[] args) {
@@ -46,11 +46,37 @@ public class Runner {
 		
 		System.out.println();
 		
-		System.out.println(Calculate.sumMultiples(3, 5, 1, 15));
+		System.out.println("The multiples of 7 between 42-89 are:");
+		Arrays.displayIntArray((Calculate.multiplesOf(7, 42, 89)));
 		
 		System.out.println();
 		
-		Arrays.displayIntArray((Calculate.commonMultiples(3, 5, 1, 15)));
-	
+		System.out.println("The sum of the multiples of 3 and 5 = " + Calculate.sumMultiples(3, 5, 1, 15));
+		
+		System.out.println();
+		
+		System.out.println("The common multiples of 3 and 5 between 1-100 are:");
+		Arrays.displayIntArray((Calculate.commonMultiples(3, 5, 1, 100)));
+		
+		System.out.println();
+		
+		System.out.println("The factors of 35 are:");
+		Arrays.displayIntArray(Calculate.factors(35));
+		
+		System.out.println();
+		
+		System.out.println("The first 13 numbers in the fibonacci sequences are:");
+		Arrays.displayIntArray(Calculate.fibSeqRange(13));
+		
+		System.out.println();
+		
+		System.out.println("The numbers in the fibonacci sequence up to 50000 are:");
+		Arrays.displayIntArray(Calculate.fibSeqUpTo(50000));
+		
+		System.out.println();
+		
+		System.out.println("The prime numbers out of 2, 13, 52, and 29 are:");
+		Arrays.displayIntArray(Calculate.primes(numbers));
+		
 	}
 }

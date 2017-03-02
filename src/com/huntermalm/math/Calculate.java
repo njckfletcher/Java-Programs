@@ -172,7 +172,7 @@ public class Calculate {
 		
 	}
 	
-	public static int[] factors(int num) {
+	public static int[] factors(long num) {
 		
 		int count = 0;
 		
@@ -193,7 +193,7 @@ public class Calculate {
 		}
 		
 		// Attach original num to factors because it IS a factor (1 * num = num)
-		factors[count] = num;
+		factors[count] = (int) num;
 		
 		return factors;
 		
